@@ -8,6 +8,8 @@
 
 [中文说明](#中文说明) | [English](#english)
 
+定制开发请联系 https://t.me/NextCLiBOT
+
 ## 中文说明
 
 ### 简介
@@ -29,6 +31,34 @@
 3、https://my.nextcli.com/clientarea.php?action=productdetails&id=123  产品详情页增加自动续费开关、手动续费按钮、自动续费管理入口
 
 4、https://my.nextcli.com/clientarea.php?action=invoices 我的账单 新增手动支付按钮
+
+**⚠️注意：**
+
+本产品不基于产品的续费价格扣款，而是基于【产品 /Admin/configproducts.php + 产品本身的配置项 /Admin/configproductoptions.php】的原始价格进行计费，如：
+
+**示例一：**
+
+VPS 10usd/月，**半年支付50u/月**
+
+VPS的可配置选项 IP 1个/1usd/月，半年价格=6usd
+
+则总金额为=**10x6个月+1x6个月=66usd**
+
+
+**示例二：**
+
+独立服务器 20usd/月，一年支付200u/月
+
+独立服务器的可配置选项 IP 1个/1usd/月，一年价格=12usd
+
+则总金额=**20x12个月+1x12个月=252usd**
+
+
+‼️ 这两个示例里，客户续费时都未享受半年、一年支付的优惠！
+
+如果您的网站产品为 半年、1年支付 设定了优惠价格，您需要在后台插件 /Admin/configaddonmods.php 设计 6个月、12个月设计折扣，如图
+![demo](auto-renewal-plugin.png)
+
 
 ### 功能特性
 
@@ -156,19 +186,19 @@ rm -rf templates_c/*
 使用独立自动续费脚本：
 
 ```bash
-php -q /path/to/whmcs/modules/addons/vpsrenew/cron_autorenew.php
+php -q /whmcs/modules/addons/vpsrenew/cron_autorenew.php
 ```
 
 Crontab 示例：
 
 ```bash
-0 1 * * * /usr/bin/php -q /path/to/whmcs/modules/addons/vpsrenew/cron_autorenew.php
+0 1 * * * /usr/bin/php -q /whmcs/modules/addons/vpsrenew/cron_autorenew.php
 ```
 
 也可以显式传入 WHMCS 根目录：
 
 ```bash
-WHMCS_ROOT=/path/to/whmcs php -q /path/to/whmcs/modules/addons/vpsrenew/cron_autorenew.php
+WHMCS_ROOT=/path/to/whmcs php -q /whmcs/modules/addons/vpsrenew/cron_autorenew.php
 ```
 
 ### 自动续费失败邮件变量
@@ -214,6 +244,9 @@ WHMCS_ROOT=/path/to/whmcs php -q /path/to/whmcs/modules/addons/vpsrenew/cron_aut
 ------
 
 [English](#english) ｜ [中文说明](#中文说明) 
+
+For custom development, please contact: https://t.me/NextCLiBOT
+
 ## English
 
 ### Overview
@@ -228,14 +261,39 @@ Based on template RS Themes -> Lagom 2 -> Theme Version: 2.0.1
 
 Other versions may have compatibility issues!
 
-1. `https://my.nextcli.com/clientarea.php?action=services` My Products & Services page adds an Auto Renewal toggle and a Manual Renewal button.
+1. https://my.nextcli.com/clientarea.php?action=services My Products & Services page adds an Auto Renewal toggle and a Manual Renewal button.
 
-2. `https://my.nextcli.com/addons/auto-renewal/` adds Auto Renewal Management, currently supports Servers / VPS only.
+2. https://my.nextcli.com/addons/auto-renewal/ adds Auto Renewal Management, currently supports Servers / VPS only.
 
-3. `https://my.nextcli.com/clientarea.php?action=productdetails&id=123` Product Details page adds an Auto Renewal toggle, Manual Renewal button, and Auto Renewal Management entry.
+3. https://my.nextcli.com/clientarea.php?action=productdetails&id=123 Product Details page adds an Auto Renewal toggle, Manual Renewal button, and Auto Renewal Management entry.
 
-4. `https://my.nextcli.com/clientarea.php?action=invoices` My Invoices page adds a Manual Payment button.
+4. https://my.nextcli.com/clientarea.php?action=invoices My Invoices page adds a Manual Payment button.
 
+**⚠️ Notice:**
+
+This product does not charge based on the product’s renewal pricing. Billing is calculated based on the **original pricing configured in [Product /Admin/configproducts.php + Product Configurable Options /Admin/configproductoptions.php]**, for example:
+
+**Example 1:**
+
+VPS **10 USD/month**, **Semi-Annual payment 50 USD**
+
+VPS configurable option: **1 IP / 1 USD per month**, semi-annual price = **6 USD**
+
+Total amount = **10x6 months + 1x6 months = 66 USD**
+
+**Example 2:**
+
+Dedicated Server **20 USD/month**, **Annual payment 200 USD**
+
+Dedicated server configurable option: **1 IP / 1 USD per month**, annual price = **12 USD**
+
+Total amount = **20x12 months + 1x12 months = 252 USD**
+
+‼️ In both examples above, the customer **does not receive the semi-annual or annual payment discount during renewal**.
+
+If your website products have **discounted pricing for Semi-Annual or Annual billing cycles**, you need to configure the **6-month and 12-month discounts in the addon module backend** `/Admin/configaddonmods.php`, as shown below:
+
+![demo](auto-renewal-plugin.png)
 
 ### Features
 
@@ -365,19 +423,19 @@ The addon exposes the following settings:
 Use the independent auto-renewal script:
 
 ```bash
-php -q /path/to/whmcs/modules/addons/vpsrenew/cron_autorenew.php
+php -q /whmcs/modules/addons/vpsrenew/cron_autorenew.php
 ```
 
 Example crontab:
 
 ```bash
-0 1 * * * /usr/bin/php -q /path/to/whmcs/modules/addons/vpsrenew/cron_autorenew.php
+0 1 * * * /usr/bin/php -q /whmcs/modules/addons/vpsrenew/cron_autorenew.php
 ```
 
 You can also pass the WHMCS root explicitly:
 
 ```bash
-WHMCS_ROOT=/path/to/whmcs php -q /path/to/whmcs/modules/addons/vpsrenew/cron_autorenew.php
+WHMCS_ROOT=/path/to/whmcs php -q /whmcs/modules/addons/vpsrenew/cron_autorenew.php
 ```
 
 ### Failed Payment Email Variables
