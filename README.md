@@ -12,6 +12,20 @@ WHMCS Servers/VPS Auto Renewal Plugin (Free) WHMCS系统程序服务器VPS自动
 
 插件会在客户端区域增加续费入口、自动续费管理能力、独立续费账单创建逻辑，以及到期后自动使用客户余额支付续费账单的能力。
 
+本插件目前属于 https://my.nextcli.com/addons/auto-renewal/ 定制，并且线上商用！欢迎注册账号体验！
+
+基于模版 RS Themes -> Lagom 2 -> Theme Version:2.0.1
+
+其他版本可能会有兼容问题！
+
+1、https://my.nextcli.com/clientarea.php?action=services 我的产品与服务 页面增加自动续费的开关 和 手动续费按钮
+
+2、https://my.nextcli.com/addons/auto-renewal/ 新增自动续费管理，目前仅支持服务器/VPS
+
+3、https://my.nextcli.com/clientarea.php?action=productdetails&id=123  产品详情页增加自动续费开关、手动续费按钮、自动续费管理入口
+
+4、https://my.nextcli.com/clientarea.php?action=invoices 我的账单 新增手动支付按钮
+
 ### 功能特性
 
 - 支持客户端手动续费
@@ -192,22 +206,6 @@ WHMCS_ROOT=/path/to/whmcs php -q /path/to/whmcs/modules/addons/vpsrenew/cron_aut
 - 依赖 WHMCS 中已有的有效价格配置
 - 邮件模板中不要直接插入未转义 Smarty 花括号的 JavaScript
 
-### 目录结构
-
-```text
-vpsrenew/
-├── autocreditlist.php
-├── cron_autorenew.php
-├── hooks.php
-├── lib_vpsrenew.php
-├── renewal.php
-├── renew_options.php
-├── ipsearch.php
-├── vpsrenew.php
-├── README.md
-└── test_*.sh
-```
-
 ### License
 
 MIT
@@ -222,6 +220,21 @@ MIT
 This is a WHMCS addon for manual renewal and balance-based auto renewal of VPS / server products.
 
 The plugin adds renewal entry points in the client area, provides an auto-renewal management interface, creates dedicated renewal invoices, and can automatically pay eligible renewal invoices using client credit when services become due.
+
+This plugin is currently customized for https://my.nextcli.com/addons/auto-renewal/ welcome to register an account and experience it!
+
+Based on template RS Themes -> Lagom 2 -> Theme Version: 2.0.1
+
+Other versions may have compatibility issues!
+
+1. `https://my.nextcli.com/clientarea.php?action=services` My Products & Services page adds an Auto Renewal toggle and a Manual Renewal button.
+
+2. `https://my.nextcli.com/addons/auto-renewal/` adds Auto Renewal Management, currently supports Servers / VPS only.
+
+3. `https://my.nextcli.com/clientarea.php?action=productdetails&id=123` Product Details page adds an Auto Renewal toggle, Manual Renewal button, and Auto Renewal Management entry.
+
+4. `https://my.nextcli.com/clientarea.php?action=invoices` My Invoices page adds a Manual Payment button.
+
 
 ### Features
 
@@ -405,21 +418,6 @@ The plugin supports three renewal behaviors internally:
 - Requires valid WHMCS pricing records
 - Email templates should not contain raw JavaScript with unescaped Smarty braces
 
-### Repository Structure
-
-```text
-vpsrenew/
-├── autocreditlist.php
-├── cron_autorenew.php
-├── hooks.php
-├── lib_vpsrenew.php
-├── renewal.php
-├── renew_options.php
-├── ipsearch.php
-├── vpsrenew.php
-├── README.md
-└── test_*.sh
-```
 
 ### License
 
