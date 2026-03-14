@@ -1,6 +1,10 @@
 # WHMCS_Auto-Renewal_Plugin_Free
-WHMCS Servers/VPS Auto Renewal Plugin (Free) WHMCS系统程序服务器VPS自动续费插件
-# WHMCS VPS Renew
+
+ WHMCS系统程序服务器VPS自动续费插件
+ 
+ WHMCS Servers/VPS Auto Renewal Plugin (Free)
+ 
+
 
 [中文说明](#中文说明) | [English](#english)
 
@@ -206,9 +210,6 @@ WHMCS_ROOT=/path/to/whmcs php -q /path/to/whmcs/modules/addons/vpsrenew/cron_aut
 - 依赖 WHMCS 中已有的有效价格配置
 - 邮件模板中不要直接插入未转义 Smarty 花括号的 JavaScript
 
-### License
-
-MIT
 
 ------
 
@@ -418,7 +419,4 @@ The plugin supports three renewal behaviors internally:
 - Requires valid WHMCS pricing records
 - Email templates should not contain raw JavaScript with unescaped Smarty braces
 
-
-### License
-
-MIT
+End.
