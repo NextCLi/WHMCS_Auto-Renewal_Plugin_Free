@@ -4,7 +4,7 @@
  
  WHMCS Servers/VPS Auto Renewal Plugin (Free)
  
-
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=github.com/NextCLi/WHMCS_Auto-Renewal_Plugin_Free)
 
 [中文说明](#中文说明) | [English](#english)
 
